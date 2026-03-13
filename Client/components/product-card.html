@@ -1,0 +1,19 @@
+<!-- Product Card Component Template -->
+<div class="product-card" data-product-id="{{id}}">
+    <img src="{{images[0] || 'https://via.placeholder.com/300'}}" alt="{{title}}" class="product-image">
+    <div class="product-info">
+        <h3 class="product-title">{{title}}</h3>
+        <div class="product-rating">
+            {{#stars}}<i class="fas fa-star"></i>{{/stars}}
+            {{#halfStar}}<i class="fas fa-star-half-alt"></i>{{/halfStar}}
+            {{#emptyStars}}<i class="far fa-star"></i>{{/emptyStars}}
+            <span class="rating-count">({{reviewCount || 0}})</span>
+        </div>
+        <div class="product-price">
+            ${{price.toFixed(2)}}
+            {{#hasOriginalPrice}}<span class="original-price">${{originalPrice.toFixed(2)}}</span>{{/hasOriginalPrice}}
+        </div>
+        <p class="product-seller">Sold by: {{sellerName}}</p>
+        <button class="add-btn" onclick="addToCart(product)">Add to Cart</button>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<!-- Orders Section Component -->
+<section class="orders-section" id="orders">
+    <div class="container">
+        <h2>My Orders</h2>
+        <div class="orders-container" id="ordersContainer">
+            <!-- Orders will be loaded here -->
+        </div>
+    </div>
+</section>
+
+<!-- Order Card Template -->
+<div class="order-card" data-order-id="{{id}}">
+    <div class="order-header">
+        <span class="order-id">Order #{{id.slice(-8)}}</span>
+        <span class="order-status status-{{orderStatus}}">{{orderStatus}}</span>
+    </div>
+    <div class="order-items">
+        {{#items}}
+        <div class="order-item">
+            <span>{{quantity}}x {{product.title}}</span>
+            <span>${{(price * quantity).toFixed(2)}}</span>
+        </div>
+        {{/items}}
+    </div>
+    <div class="order-footer">
+        <span class="order-total">Total: ${{totalAmount.toFixed(2)}}</span>
+        <span class="order-date">{{createdAt}}</span>
+    </div>
+</div>
